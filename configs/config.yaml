@@ -1,0 +1,35 @@
+data:
+  name: synthetic_classification   # or "mnist", "imagefolder", "csv", etc.
+  root: data/raw
+  batch_size: 64
+  num_workers: 0
+  seed: 42
+
+synthetic:
+  n_train: 1024
+  n_val: 256
+  input_dim: 32
+  num_classes: 4
+
+model: 
+  name: mlp
+  input_dim: 784
+  hidden_dim: 265
+  num_classes: 10
+
+train:
+  epochs: 5
+  lr: 0.001
+  seed: 42
+
+tracking: 
+  backend: mlflow
+  experiment: "ml-template"
+  run_name: "debug-run"
+
+paths:
+  output_dir: outputs
+
+hydra:
+  run:
+    dir: .
